@@ -1,10 +1,10 @@
 /* Sources directory */
-#define SOURCE_FOLDER "/Users/lion/project/brain"
+#define SOURCE_FOLDER "/home/zqs/project/workload_predict"
 
 /* Binaries directory */
-#define BINARY_FOLDER "/Users/lion/project/brain/build"
+#define BINARY_FOLDER "/home/zqs/project/workload_predict/build"
 
-#define DATA_DIR "/Users/lion/project/brain/data/"
+#define DATA_DIR "/home/zqs/project/workload_predict/data/"
 
 /* Temporary (TODO: remove) */
 #if 1

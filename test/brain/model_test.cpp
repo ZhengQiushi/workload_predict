@@ -18,10 +18,10 @@
 #include "brain/workload/lstm.h"
 #include "brain/workload/workload_defaults.h"
 #include "common/harness.h"
-#include "util/file_util.h"
+// #include "util/file_util.h"
 
-namespace peloton {
-namespace test {
+using  namespace peloton; // {
+using  namespace test;// {
 class ModelTests : public PelotonTest {};
 
 TEST_F(ModelTests, NormalizerTest) {
@@ -34,7 +34,7 @@ TEST_F(ModelTests, NormalizerTest) {
 }
 
 // Enable after resolving
-TEST_F(ModelTests, DISABLED_TimeSeriesLSTMTest) {
+TEST_F(ModelTests, TimeSeriesLSTMTest) {
   auto model = std::unique_ptr<brain::TimeSeriesLSTM>(new brain::TimeSeriesLSTM(
       brain::LSTMWorkloadDefaults::NFEATS,
       brain::LSTMWorkloadDefaults::NENCODED, brain::LSTMWorkloadDefaults::NHID,
@@ -97,7 +97,7 @@ TEST_F(ModelTests, KernelRegTest) {
                                     brain::CommonWorkloadDefaults::ESTOP_DELTA);
 }
 
-TEST_F(ModelTests, DISABLED_TimeSeriesEnsembleTest) {
+TEST_F(ModelTests, TimeSeriesEnsembleTest) {
   auto lr_model = std::make_shared<brain::TimeSeriesLinearReg>(
       brain::LinearRegWorkloadDefaults::BPTT,
       brain::CommonWorkloadDefaults::HORIZON,
@@ -136,5 +136,18 @@ TEST_F(ModelTests, DISABLED_TimeSeriesEnsembleTest) {
 }
 
 
-}  // namespace test
-}  // namespace peloton
+int main(int argc, char **argv)
+{
+
+  // 分析gtest程序的命令行参数
+  testing::InitGoogleTest(&argc, argv);
+
+  // 调用RUN_ALL_TESTS()运行所有测试用例
+  // main函数返回RUN_ALL_TESTS()的运行结果
+
+  int rc = RUN_ALL_TESTS();
+
+  return rc;
+}
+// }  // namespace test
+// }  // namespace peloton

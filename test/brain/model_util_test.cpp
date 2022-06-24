@@ -15,8 +15,8 @@
 #include "brain/workload/workload_defaults.h"
 #include "common/harness.h"
 
-namespace peloton {
-namespace test {
+using  namespace peloton;//  {
+using  namespace test;//  {
 class ModelUtilTests : public PelotonTest {};
 
 TEST_F(ModelUtilTests, MeanSquareErrorTest) {
@@ -263,5 +263,19 @@ TEST_F(ModelUtilTests, EarlyStopTest) {
   EXPECT_TRUE(brain::ModelUtil::EarlyStop(stop_set, patience, delta));
 }
 
-}  // namespace test
-}  // namespace peloton
+int main(int argc, char **argv)
+{
+
+  // 分析gtest程序的命令行参数
+  testing::InitGoogleTest(&argc, argv);
+
+  // 调用RUN_ALL_TESTS()运行所有测试用例
+  // main函数返回RUN_ALL_TESTS()的运行结果
+
+  int rc = RUN_ALL_TESTS();
+
+  return rc;
+}
+
+// }  // namespace test
+// }  // namespace peloton

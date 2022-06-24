@@ -17,13 +17,15 @@
 #include "brain/util/model_util.h"
 #include "brain/workload/workload_defaults.h"
 #include "common/harness.h"
-#include "util/file_util.h"
+#include <gtest/gtest.h>
 
-namespace peloton {
-namespace test {
+// #include "util/file_util.h"
+
+using  namespace peloton ;// {
+using  namespace test ;// {
 class AugmentedNNTests : public PelotonTest {};
 
-TEST_F(AugmentedNNTests, DISABLED_AugmentedNNUniformTest) {
+TEST(AugmentedNNTests, AugmentedNNUniformTest) {
   auto model = std::unique_ptr<brain::AugmentedNN>(new brain::AugmentedNN(
       brain::AugmentedNNDefaults::COLUMN_NUM,
       brain::AugmentedNNDefaults::ORDER,
@@ -45,7 +47,7 @@ TEST_F(AugmentedNNTests, DISABLED_AugmentedNNUniformTest) {
                                brain::CommonWorkloadDefaults::ESTOP_DELTA);
 }
 
-TEST_F(AugmentedNNTests, DISABLED_AugmentedNNSkewedTest) {
+TEST(AugmentedNNTests, AugmentedNNSkewedTest) {
   auto model = std::unique_ptr<brain::AugmentedNN>(new brain::AugmentedNN(
       brain::AugmentedNNDefaults::COLUMN_NUM,
       brain::AugmentedNNDefaults::ORDER,
@@ -67,5 +69,19 @@ TEST_F(AugmentedNNTests, DISABLED_AugmentedNNSkewedTest) {
                                brain::CommonWorkloadDefaults::ESTOP_DELTA);
 }
 
-}  // namespace test
-}  // namespace peloton
+int main(int argc, char **argv)
+{
+
+  // 分析gtest程序的命令行参数
+  testing::InitGoogleTest(&argc, argv);
+
+  // 调用RUN_ALL_TESTS()运行所有测试用例
+  // main函数返回RUN_ALL_TESTS()的运行结果
+
+  int rc = RUN_ALL_TESTS();
+
+  return rc;
+}
+
+// }  // namespace test
+// }  // namespace peloton

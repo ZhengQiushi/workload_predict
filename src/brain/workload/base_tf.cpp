@@ -14,7 +14,7 @@
 #include "brain/util/tf_session_entity/tf_session_entity.h"
 #include "brain/util/tf_session_entity/tf_session_entity_input.h"
 #include "brain/util/tf_session_entity/tf_session_entity_output.h"
-#include "util/file_util.h"
+// #include "util/file_util.h"
 
 namespace peloton {
 namespace brain {
@@ -62,13 +62,13 @@ matrix_eig Normalizer::ReverseTransform(const matrix_eig &X) const {
 BaseTFModel::BaseTFModel(const std::string &modelgen_path,
                          const std::string &pymodel_path,
                          const std::string &graph_path)
-    : BaseModel(),
-      modelgen_path_(peloton::FileUtil::GetRelativeToRootPath(modelgen_path)),
-      pymodel_path_(peloton::FileUtil::GetRelativeToRootPath(pymodel_path)),
-      graph_path_(peloton::FileUtil::GetRelativeToRootPath(graph_path)) {
+    : // BaseModel(),
+      modelgen_path_(("/home/zqs/project/workload_predict/" + modelgen_path)), // peloton::FileUtil::GetRelativeToRootPath
+      pymodel_path_(("/home/zqs/project/workload_predict/" + pymodel_path)), // peloton::FileUtil::GetRelativeToRootPath(
+      graph_path_(("/home/zqs/project/workload_predict/" + graph_path)) { // peloton::FileUtil::GetRelativeToRootPath
   tf_session_entity_ = std::unique_ptr<TfSessionEntity<float, float>>(
       new TfSessionEntity<float, float>());
-  PELOTON_ASSERT(FileUtil::Exists(pymodel_path_));
+  // PELOTON_ASSERT(FileUtil::Exists(pymodel_path_));
 }
 
 BaseTFModel::~BaseTFModel() { remove(graph_path_.c_str()); }
@@ -83,7 +83,7 @@ void BaseTFModel::GenerateModel(const std::string &args_str) {
   LOG_DEBUG("Executing command: %s", cmd.c_str());
   UNUSED_ATTRIBUTE bool succ = system(cmd.c_str());
   PELOTON_ASSERT(succ == 0);
-  PELOTON_ASSERT(FileUtil::Exists(graph_path_));
+  // PELOTON_ASSERT(FileUtil::Exists(graph_path_));
 }
 }  // namespace brain
 }  // namespace peloton

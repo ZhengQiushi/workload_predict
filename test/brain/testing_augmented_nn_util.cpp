@@ -2,7 +2,8 @@
 #include <limits>
 #include "brain/util/model_util.h"
 #include "brain/util/eigen_util.h"
-#include "common/harness.h"
+// #include "common/harness.h"
+#include <gtest/gtest.h>
 #include <random>
 
 namespace peloton {
@@ -49,12 +50,12 @@ void TestingAugmentedNNUtil::Test(
     if (epoch % val_interval == 0) {
       val_loss = model.ValidateEpoch(validate_data);
       train_loss = train_loss_avg.mean();
-      EXPECT_LE(train_loss, prev_train_loss);
+      ASSERT_LE(train_loss, prev_train_loss);
       LOG_DEBUG("Train Loss: %.10f, Valid Loss: %.10f", train_loss, val_loss);
       prev_train_loss = train_loss;
     }
   }
-  EXPECT_LE(val_loss, val_loss_thresh);
+  ASSERT_LE(val_loss, val_loss_thresh);
 
   matrix_eig check_data = 
       test_data.block(0, 0, test_data.rows(), test_data.cols() - 1);

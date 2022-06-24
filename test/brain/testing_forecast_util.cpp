@@ -2,7 +2,10 @@
 #include <limits>
 #include "brain/util/model_util.h"
 #include "brain/util/eigen_util.h"
-#include "common/harness.h"
+#include <gflags/gflags.h>
+#include <gmock/gmock.h>
+
+// #include "common/harness.h"
 #include <random>
 
 namespace peloton {

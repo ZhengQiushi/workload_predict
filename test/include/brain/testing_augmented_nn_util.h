@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/internal_types.h"
+// #include "common/internal_types.h"
 #include "brain/util/eigen_util.h"
 #include "brain/workload/base_tf.h"
 #include "brain/selectivity/augmented_nn.h"

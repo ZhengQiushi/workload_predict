@@ -43,7 +43,7 @@ class Normalizer {
  */
 class BaseModel {
  public:
-  virtual ~BaseModel() = 0;
+  // virtual ~BaseModel() = 0;
   virtual std::string ToString() const = 0;
   virtual void Fit(const matrix_eig &X, const matrix_eig &y, int bsz) = 0;
   virtual matrix_eig Predict(const matrix_eig &X, int bsz) const = 0;
@@ -56,7 +56,7 @@ class BaseModel {
 class BaseForecastModel : public virtual BaseModel {
  public:
   BaseForecastModel(int bptt, int horizon, int interval, int epochs = 1)
-      : BaseModel(),
+      : // BaseModel(),
         bptt_(bptt),
         horizon_(horizon),
         interval_(interval),

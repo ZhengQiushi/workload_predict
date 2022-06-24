@@ -15,8 +15,8 @@
 #include "brain/query_clusterer.h"
 #include "common/harness.h"
 
-namespace peloton {
-namespace test {
+using  namespace peloton;//  {
+using  namespace test;// {
 
 //===--------------------------------------------------------------------===//
 // Clusterer Tests
@@ -172,5 +172,20 @@ TEST_F(QueryClustererTests, ClusterTest) {
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[2],
                   fingerprints[3], fingerprints[4], fingerprints[5]}}));
 }
-}  // namespace test
-}  // namespace peloton
+
+int main(int argc, char **argv)
+{
+
+  // 分析gtest程序的命令行参数
+  testing::InitGoogleTest(&argc, argv);
+
+  // 调用RUN_ALL_TESTS()运行所有测试用例
+  // main函数返回RUN_ALL_TESTS()的运行结果
+
+  int rc = RUN_ALL_TESTS();
+
+  return rc;
+}
+
+// }  // namespace test
+// }  // namespace peloton

@@ -66,18 +66,18 @@ function(peloton_pickup_peloton_sources root)
   file(GLOB test_srcs    ${root}/test/*/*.cpp)
   file(GLOB_RECURSE hdrs ${root}/include/*/*.h*)
   file(GLOB_RECURSE srcs ${root}/src/*/*.cpp)
-  file(GLOB_RECURSE main_srcs ${root}/src/main/*.cpp)
+  # file(GLOB_RECURSE main_srcs ${root}/src/main/*.cpp)
 
   # convert to absolute paths
   peloton_convert_absolute_paths(srcs)
   peloton_convert_absolute_paths(test_hdrs)
   peloton_convert_absolute_paths(test_srcs)
-  peloton_convert_absolute_paths(main_srcs)
+  # peloton_convert_absolute_paths(main_srcs)
 
   # remove test files and main files from file set
   list(REMOVE_ITEM  hdrs ${test_hdrs})
   list(REMOVE_ITEM  srcs ${test_srcs})
-  list(REMOVE_ITEM  srcs ${main_srcs})
+  # list(REMOVE_ITEM  srcs ${main_srcs})
 
   # murmur3
   file(GLOB_RECURSE murmur_srcs ${root}/third_party/murmur3/*.cpp)

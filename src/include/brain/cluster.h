@@ -17,6 +17,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <stdint.h>
 
 namespace peloton {
 namespace brain {
@@ -53,7 +54,7 @@ class Cluster {
    *
    * @param features : map from the fingerprint to its feature vector
    */
-  void UpdateCentroid(std::map<std::string, std::vector<double>> &features);
+  void UpdateCentroid(std::map<std::string, std::vector<double> > &features);
 
   /**
    * @brief Compute the cosine similarity between the centroid of the cluster

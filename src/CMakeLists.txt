@@ -43,6 +43,9 @@ peloton_pickup_peloton_sources(${PROJECT_SOURCE_DIR})
 
 add_library(peloton SHARED ${srcs})
 
+
+message("${Peloton_LINKER_LIBS}")
+
 target_link_libraries(peloton PUBLIC ${Peloton_LINKER_LIBS}) # peloton-proto pg_query)
 
 peloton_default_properties(peloton)

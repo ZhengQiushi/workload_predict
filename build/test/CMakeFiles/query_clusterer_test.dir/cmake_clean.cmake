@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/query_clusterer_test.dir/brain/query_clusterer_test.cpp.o"
-  "CMakeFiles/query_clusterer_test.dir/brain/query_clusterer_test.cpp.o.d"
-  "query_clusterer_test"
   "query_clusterer_test.pdb"
+  "query_clusterer_test"
 )
 
 # Per-language clean rules from dependency scanning.

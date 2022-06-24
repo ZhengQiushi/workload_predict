@@ -19,7 +19,7 @@ namespace brain {
 
 void Cluster::AddTemplateAndUpdateCentroid(std::string &fingerprint,
                                            std::vector<double> &feature) {
-  auto num_templates = templates_.size();
+  size_t num_templates = templates_.size();
   for (unsigned int i = 0u; i < feature.size(); i++) {
     centroid_[i] +=
         (centroid_[i] * num_templates + feature[i]) * 1.0 / (num_templates + 1);
@@ -36,13 +36,14 @@ void Cluster::RemoveTemplate(std::string &fingerprint) {
 }
 
 void Cluster::UpdateCentroid(
-    std::map<std::string, std::vector<double>> &features) {
+    std::map<std::string, std::vector<double> > &features) {
   int num_features = centroid_.size();
   std::fill(centroid_.begin(), centroid_.end(), 0);
   PELOTON_ASSERT(templates_.size() != 0);
 
-  for (auto fingerprint : templates_) {
-    auto feature = features[fingerprint];
+  for(std::set<std::string>::iterator iter = templates_.begin(); iter != templates_.end(); iter ++ ) {
+    std::string fingerprint = *iter;
+    std::vector<double> feature = features[fingerprint];
     for (int i = 0; i < num_features; i++) {
       centroid_[i] += feature[i];
     }
