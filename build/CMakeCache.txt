@@ -287,7 +287,7 @@ SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 gflags_DIR:PATH=/usr/local/lib/cmake/gflags
 
 //Dependencies for the target
-peloton_LIB_DEPENDS:STATIC=general;/usr/local/boost/lib/libboost_system.so;general;/usr/local/boost/lib/libboost_filesystem.so;general;-lpthread;general;/usr/local/lib64/libgmock.a;general;/usr/local/lib64/libgtest.a;general;gflags_static;general;/usr/local/lib/libtensorflow_cc.so;general;/usr/local/lib/libtensorflow_framework.so;general;/usr/local/lib/libevent.a;general;/usr/local/lib/libevent_pthreads.a;
+peloton_LIB_DEPENDS:STATIC=general;/usr/local/boost/lib/libboost_system.so;general;/usr/local/boost/lib/libboost_filesystem.so;general;-lpthread;general;/usr/local/lib64/libgmock.a;general;/usr/local/lib64/libgtest.a;general;gflags_shared;general;/usr/local/lib/libtensorflow_cc.so;general;/usr/local/lib/libtensorflow_framework.so;general;/usr/local/lib/libevent.a;general;/usr/local/lib/libevent_pthreads.a;
 
 
 ########################

@@ -85,7 +85,7 @@ test/query_clusterer_test: /usr/local/boost/lib/libboost_system.so
 test/query_clusterer_test: /usr/local/boost/lib/libboost_filesystem.so
 test/query_clusterer_test: /usr/local/lib64/libgmock.a
 test/query_clusterer_test: /usr/local/lib64/libgtest.a
-test/query_clusterer_test: /usr/local/lib/libgflags.a
+test/query_clusterer_test: /usr/local/lib/libgflags.so.2.2.0
 test/query_clusterer_test: /usr/local/lib/libtensorflow_cc.so
 test/query_clusterer_test: /usr/local/lib/libtensorflow_framework.so
 test/query_clusterer_test: /usr/local/lib/libevent.a

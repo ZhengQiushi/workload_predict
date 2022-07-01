@@ -278,6 +278,19 @@ src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.s"
 	cd /home/zqs/project/workload_predict/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/src/brain/workload/workload_defaults.cpp -o CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.s
 
+src/CMakeFiles/peloton.dir/main/main.cpp.o: src/CMakeFiles/peloton.dir/flags.make
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/main/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/peloton.dir/main/main.cpp.o"
+	cd /home/zqs/project/workload_predict/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/peloton.dir/main/main.cpp.o -c /home/zqs/project/workload_predict/src/main/main.cpp
+
+src/CMakeFiles/peloton.dir/main/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/peloton.dir/main/main.cpp.i"
+	cd /home/zqs/project/workload_predict/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/src/main/main.cpp > CMakeFiles/peloton.dir/main/main.cpp.i
+
+src/CMakeFiles/peloton.dir/main/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/peloton.dir/main/main.cpp.s"
+	cd /home/zqs/project/workload_predict/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/src/main/main.cpp -o CMakeFiles/peloton.dir/main/main.cpp.s
+
 # Object files for target peloton
 peloton_OBJECTS = \
 "CMakeFiles/peloton.dir/brain/cluster.cpp.o" \
@@ -296,7 +309,8 @@ peloton_OBJECTS = \
 "CMakeFiles/peloton.dir/brain/workload/kernel_model.cpp.o" \
 "CMakeFiles/peloton.dir/brain/workload/linear_model.cpp.o" \
 "CMakeFiles/peloton.dir/brain/workload/lstm.cpp.o" \
-"CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o"
+"CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o" \
+"CMakeFiles/peloton.dir/main/main.cpp.o"
 
 # External object files for target peloton
 peloton_EXTERNAL_OBJECTS =
@@ -318,18 +332,19 @@ lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/brain/workload/kernel_model.
 lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/brain/workload/linear_model.cpp.o
 lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/brain/workload/lstm.cpp.o
 lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o
+lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/main/main.cpp.o
 lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/build.make
 lib/libpeloton.so.0.0.5: /usr/local/boost/lib/libboost_system.so
 lib/libpeloton.so.0.0.5: /usr/local/boost/lib/libboost_filesystem.so
 lib/libpeloton.so.0.0.5: /usr/local/lib64/libgmock.a
 lib/libpeloton.so.0.0.5: /usr/local/lib64/libgtest.a
-lib/libpeloton.so.0.0.5: /usr/local/lib/libgflags.a
+lib/libpeloton.so.0.0.5: /usr/local/lib/libgflags.so.2.2.0
 lib/libpeloton.so.0.0.5: /usr/local/lib/libtensorflow_cc.so
 lib/libpeloton.so.0.0.5: /usr/local/lib/libtensorflow_framework.so
 lib/libpeloton.so.0.0.5: /usr/local/lib/libevent.a
 lib/libpeloton.so.0.0.5: /usr/local/lib/libevent_pthreads.a
 lib/libpeloton.so.0.0.5: src/CMakeFiles/peloton.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX shared library ../lib/libpeloton.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX shared library ../lib/libpeloton.so"
 	cd /home/zqs/project/workload_predict/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/peloton.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/zqs/project/workload_predict/build/src && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libpeloton.so.0.0.5 ../lib/libpeloton.so.0.0.5 ../lib/libpeloton.so
 

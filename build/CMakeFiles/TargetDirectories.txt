@@ -30,8 +30,9 @@
 /home/zqs/project/workload_predict/build/CMakeFiles/ContinuousStart.dir
 /home/zqs/project/workload_predict/build/CMakeFiles/ContinuousUpdate.dir
 /home/zqs/project/workload_predict/build/src/CMakeFiles/rebuild_cache.dir
-/home/zqs/project/workload_predict/build/src/CMakeFiles/edit_cache.dir
 /home/zqs/project/workload_predict/build/src/CMakeFiles/test.dir
+/home/zqs/project/workload_predict/build/src/CMakeFiles/edit_cache.dir
+/home/zqs/project/workload_predict/build/src/CMakeFiles/peloton-bin.dir
 /home/zqs/project/workload_predict/build/src/CMakeFiles/peloton.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/rebuild_cache.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/peloton-test-common.dir

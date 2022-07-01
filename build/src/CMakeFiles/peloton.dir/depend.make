@@ -463,3 +463,5 @@ src/CMakeFiles/peloton.dir/brain/workload/lstm.cpp.o: /usr/local/include/tensorf
 src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o: ../src/include/brain/workload/workload_defaults.h
 src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o: ../src/brain/workload/workload_defaults.cpp
 
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/main/main.cpp
+

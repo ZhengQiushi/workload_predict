@@ -85,7 +85,7 @@ test/augmented_nn_test: /usr/local/boost/lib/libboost_system.so
 test/augmented_nn_test: /usr/local/boost/lib/libboost_filesystem.so
 test/augmented_nn_test: /usr/local/lib64/libgmock.a
 test/augmented_nn_test: /usr/local/lib64/libgtest.a
-test/augmented_nn_test: /usr/local/lib/libgflags.a
+test/augmented_nn_test: /usr/local/lib/libgflags.so.2.2.0
 test/augmented_nn_test: /usr/local/lib/libtensorflow_cc.so
 test/augmented_nn_test: /usr/local/lib/libtensorflow_framework.so
 test/augmented_nn_test: /usr/local/lib/libevent.a

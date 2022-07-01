@@ -58,10 +58,10 @@ set_target_properties(peloton PROPERTIES
 
 # --[ Peloton
 
-# set(peloton_main ${PROJECT_SOURCE_DIR}/src/main/peloton/peloton.cpp)
-# add_executable(peloton-bin ${peloton_main})
-# target_link_libraries(peloton-bin peloton)
-# set_target_properties(peloton-bin PROPERTIES OUTPUT_NAME peloton)
+set(peloton_main ${PROJECT_SOURCE_DIR}/src/main/main.cpp)
+add_executable(peloton-bin ${peloton_main})
+target_link_libraries(peloton-bin peloton)
+set_target_properties(peloton-bin PROPERTIES OUTPUT_NAME peloton)
 
 ##################################################################################
 

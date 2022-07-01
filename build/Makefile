@@ -486,6 +486,19 @@ ContinuousUpdate/fast:
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
+# Target rules for targets named peloton-bin
+
+# Build rule for target.
+peloton-bin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 peloton-bin
+.PHONY : peloton-bin
+
+# fast build rule for target.
+peloton-bin/fast:
+	$(MAKE) -f src/CMakeFiles/peloton-bin.dir/build.make src/CMakeFiles/peloton-bin.dir/build
+.PHONY : peloton-bin/fast
+
+#=============================================================================
 # Target rules for targets named peloton
 
 # Build rule for target.
@@ -652,6 +665,7 @@ help:
 	@echo "... ExperimentalSubmit"
 	@echo "... ContinuousStart"
 	@echo "... ContinuousUpdate"
+	@echo "... peloton-bin"
 	@echo "... peloton"
 	@echo "... peloton-test-common"
 	@echo "... tensorflow_util_test"

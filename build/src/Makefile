@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -88,6 +77,17 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -120,6 +120,21 @@ preinstall/fast:
 depend:
 	cd /home/zqs/project/workload_predict/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+src/CMakeFiles/peloton-bin.dir/rule:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/peloton-bin.dir/rule
+.PHONY : src/CMakeFiles/peloton-bin.dir/rule
+
+# Convenience name for target.
+peloton-bin: src/CMakeFiles/peloton-bin.dir/rule
+
+.PHONY : peloton-bin
+
+# fast build rule for target.
+peloton-bin/fast:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton-bin.dir/build.make src/CMakeFiles/peloton-bin.dir/build
+.PHONY : peloton-bin/fast
 
 # Convenience name for target.
 src/CMakeFiles/peloton.dir/rule:
@@ -595,6 +610,36 @@ brain/workload/workload_defaults.cpp.s:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.s
 .PHONY : brain/workload/workload_defaults.cpp.s
 
+main/main.o: main/main.cpp.o
+
+.PHONY : main/main.o
+
+# target to build an object file
+main/main.cpp.o:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton-bin.dir/build.make src/CMakeFiles/peloton-bin.dir/main/main.cpp.o
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/main/main.cpp.o
+.PHONY : main/main.cpp.o
+
+main/main.i: main/main.cpp.i
+
+.PHONY : main/main.i
+
+# target to preprocess a source file
+main/main.cpp.i:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton-bin.dir/build.make src/CMakeFiles/peloton-bin.dir/main/main.cpp.i
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/main/main.cpp.i
+.PHONY : main/main.cpp.i
+
+main/main.s: main/main.cpp.s
+
+.PHONY : main/main.s
+
+# target to generate assembly for a file
+main/main.cpp.s:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton-bin.dir/build.make src/CMakeFiles/peloton-bin.dir/main/main.cpp.s
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/main/main.cpp.s
+.PHONY : main/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -602,8 +647,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... peloton-bin"
 	@echo "... peloton"
 	@echo "... brain/cluster.o"
 	@echo "... brain/cluster.i"
@@ -656,6 +702,9 @@ help:
 	@echo "... brain/workload/workload_defaults.o"
 	@echo "... brain/workload/workload_defaults.i"
 	@echo "... brain/workload/workload_defaults.s"
+	@echo "... main/main.o"
+	@echo "... main/main.i"
+	@echo "... main/main.s"
 .PHONY : help
 
 

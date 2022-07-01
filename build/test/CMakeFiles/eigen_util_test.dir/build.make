@@ -85,7 +85,7 @@ test/eigen_util_test: /usr/local/boost/lib/libboost_system.so
 test/eigen_util_test: /usr/local/boost/lib/libboost_filesystem.so
 test/eigen_util_test: /usr/local/lib64/libgmock.a
 test/eigen_util_test: /usr/local/lib64/libgtest.a
-test/eigen_util_test: /usr/local/lib/libgflags.a
+test/eigen_util_test: /usr/local/lib/libgflags.so.2.2.0
 test/eigen_util_test: /usr/local/lib/libtensorflow_cc.so
 test/eigen_util_test: /usr/local/lib/libtensorflow_framework.so
 test/eigen_util_test: /usr/local/lib/libevent.a

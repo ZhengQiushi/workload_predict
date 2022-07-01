@@ -85,7 +85,7 @@ test/model_test: /usr/local/boost/lib/libboost_system.so
 test/model_test: /usr/local/boost/lib/libboost_filesystem.so
 test/model_test: /usr/local/lib64/libgmock.a
 test/model_test: /usr/local/lib64/libgtest.a
-test/model_test: /usr/local/lib/libgflags.a
+test/model_test: /usr/local/lib/libgflags.so.2.2.0
 test/model_test: /usr/local/lib/libtensorflow_cc.so
 test/model_test: /usr/local/lib/libtensorflow_framework.so
 test/model_test: /usr/local/lib/libevent.a
