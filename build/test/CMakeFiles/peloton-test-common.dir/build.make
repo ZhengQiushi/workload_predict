@@ -60,28 +60,28 @@ include test/CMakeFiles/peloton-test-common.dir/flags.make
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: test/CMakeFiles/peloton-test-common.dir/flags.make
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: ../test/brain/testing_forecast_util.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o -c /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o -c /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp
 
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.i"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp > CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.i
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp > CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.i
 
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.s"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp -o CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.s
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/testing_forecast_util.cpp -o CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.s
 
 test/CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.o: test/CMakeFiles/peloton-test-common.dir/flags.make
 test/CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.o: ../test/brain/testing_augmented_nn_util.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.o"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.o -c /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.o -c /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp
 
 test/CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.i"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp > CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.i
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp > CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.i
 
 test/CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.s"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp -o CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.s
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/testing_augmented_nn_util.cpp -o CMakeFiles/peloton-test-common.dir/brain/testing_augmented_nn_util.cpp.s
 
 # Object files for target peloton-test-common
 peloton__test__common_OBJECTS = \

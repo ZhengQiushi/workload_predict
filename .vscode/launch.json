@@ -1,0 +1,76 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // /home/zqs/star/bench_tpcc --logtostderr=1 --id=1 --servers="10.77.110.144:10215;10.77.110.145:10216;10.77.110.148:10217" --protocol=Silo --partition_num=24 --partitioner=hash2 --threads=2 --batch_size=1000 --batch_flush=500 --neworder_dist=100 --cpu_core_id=0
+
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "c++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            // "program": "${fileDirname}/${fileBasenameNoExtension}", bench_ycsb
+            "program": "/home/zqs/project/workload_predict/build/bin/peloton", // 需要执行的文件位置 ycsb"
+            "args": [
+                "--logtostderr=1",
+                "--v=10"
+                // "--id=1", //   10.77.110.147:10226;10.77.110.145:10227;10.77.110.148:10228 // ;10.77.110.148:10214 ;10.77.110.145:10215
+                // "--servers=\"0.0.0.0:10213;0.0.0.0:10214\"", // 10.77.110.145:10225;10.77.110.146:10226;10.77.110.147:10227;10.77.110.144:10228\"", //\"\"", // \"\"", // 
+                // "--protocol=Lion",
+                // "--partition_num=4", // 12
+                // "--partitioner=Lion",
+                // "--threads=1",
+                // "--read_write_ratio=100",
+                // "--cross_ratio=20",
+                // "--neworder_dist=50",
+                // "--replica_group=3",
+                // "--lock_manager=1",
+                // "--batch_size=1000",
+                // "--batch_flush=500",
+                // "--cpu_core_id=0",
+                // "--lion_no_switch=true",
+                // "--v=2",
+                // "--data_transform_interval=4",
+                // "--enable_data_transfer=1"// ,
+                // "--time_to_run=50"
+                ], // 输入的参数 "-f", "../../etc/observer.ini"
+            "stopAtEntry": true,
+            "cwd": "/home/zqs/project/workload_predict/", // 当前运行的位置 // "cwd": "${workspaceFolder}",// 
+            "environment": [],
+            // "terminal": "external",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            // "setupCommands": [
+            //     // {
+            //     //     "description": "Enable pretty-printing for gdb",
+            //     //     "text": "-enable-pretty-printing",
+            //     //     "ignoreFailures": true
+            //     // },
+            //     // {   
+            //     //     "description": "Enable multi-thread for gdb",
+            //     //     "text": "-gdb-set follow-fork-mode child"
+            //     // }
+            //     {
+            //         "description": "",
+            //         "text": "source ~/.gdbinit"
+            //     }
+            // ],
+
+            "setupCommands": [
+                { 
+                    "text": "-enable-pretty-printing", 
+                    "description": "enable pretty printing", 
+                    "ignoreFailures": true }
+            ],
+
+            "preLaunchTask": "bench_tpcc",  //与tasks.json 的label项目同名
+            // "miDebuggerPath": "/usr/bin/gdb"
+            "targetArchitecture": "x86_64",
+        }
+    ]
+}
+
+
+

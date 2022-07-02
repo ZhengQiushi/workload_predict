@@ -19,6 +19,8 @@
 
 #include "brain/cluster.h"
 #include "brain/kd_tree.h"
+#include "common/bitmap.h"
+
 
 namespace peloton {
 namespace brain {
@@ -35,7 +37,9 @@ class QueryClusterer {
   QueryClusterer(int num_features, double threshold)
       : num_features_(num_features),
         threshold_(threshold),
-        kd_tree_(num_features) {}
+        kd_tree_(num_features) {
+          bitmap.init(500);
+        }
 
   /**
    * @brief Collects the latest data from the server, update the feature
@@ -44,13 +48,30 @@ class QueryClusterer {
   void UpdateFeatures();
 
   /**
+   * @brief 
+   * 
+   * @param fingerprint   template name 
+   * @param feature 
+   * @return Cluster* 
+   */
+  Cluster* CreateNewCluster(const std::string &fingerprint, const vector<double> &feature);
+
+
+  /**
+   * @brief 
+   * 
+   * @param cluster 
+   */
+  void DropCluster(Cluster *cluster);
+
+  /**
    * @brief Update the cluster of the given template
    *
    * @param fingerprint - the fingerprint of the template whose cluster needs
    * to be updated
    * @param is_new - true if the fingerprint is seen for the first time
    */
-  void UpdateTemplate(std::string fingerprint, bool is_new);
+  void UpdateTemplate(const std::string& fingerprint, bool is_new);
 
   /**
    * @brief Update the cluster of the existing templates in each cluster
@@ -72,7 +93,7 @@ class QueryClusterer {
   /**
    * @brief Add a feature (new/existing) into the cluster
    */
-  void AddFeature(std::string &fingerprint, std::vector<double> feature);
+  void AddFeature(const std::string &fingerprint, std::vector<double>& feature);
 
   /**
    * @brief Return the all the clusters
@@ -97,6 +118,10 @@ class QueryClusterer {
   double threshold_;
   // KDTree for finding the nearest cluster
   KDTree kd_tree_;
+
+
+  common::Bitmap bitmap;
+
 };
 
 }  // namespace brain

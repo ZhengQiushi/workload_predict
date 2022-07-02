@@ -35,10 +35,11 @@
 /home/zqs/project/workload_predict/build/src/CMakeFiles/peloton-bin.dir
 /home/zqs/project/workload_predict/build/src/CMakeFiles/peloton.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/rebuild_cache.dir
+/home/zqs/project/workload_predict/build/test/CMakeFiles/test.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/peloton-test-common.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/tensorflow_util_test.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/check.dir
-/home/zqs/project/workload_predict/build/test/CMakeFiles/test.dir
+/home/zqs/project/workload_predict/build/test/CMakeFiles/bitmap_test.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/augmented_nn_test.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/query_clusterer_test.dir
 /home/zqs/project/workload_predict/build/test/CMakeFiles/query_logger_test.dir

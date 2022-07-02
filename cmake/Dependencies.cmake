@@ -36,6 +36,14 @@ find_package(gflags REQUIRED)
 include_directories(SYSTEM ${GFLAGS_INCLUDE_DIRS})
 list(APPEND Peloton_LINKER_LIBS ${GFLAGS_LIBRARIES})
 
+
+# include_directories(SYSTEM ${GLOG_INCLUDE_DIRS})
+set(GLOG_LIBRARIES "/usr/local/lib/libglog.a")
+list(APPEND Peloton_LINKER_LIBS ${GLOG_LIBRARIES})
+
+# set( 
+# set(gflags "/usr/local/lib/libgflags.a")
+
 # --[ tensorflow
 set(TFlowC_LIBRARIES "/usr/local/lib/libtensorflow_cc.so")
 set(TFlowC_FRAMEWORK_LIBRARIES "/usr/local/lib/libtensorflow_framework.so")

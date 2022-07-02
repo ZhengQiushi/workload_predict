@@ -167,6 +167,21 @@ check/fast:
 .PHONY : check/fast
 
 # Convenience name for target.
+test/CMakeFiles/bitmap_test.dir/rule:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/bitmap_test.dir/rule
+.PHONY : test/CMakeFiles/bitmap_test.dir/rule
+
+# Convenience name for target.
+bitmap_test: test/CMakeFiles/bitmap_test.dir/rule
+
+.PHONY : bitmap_test
+
+# fast build rule for target.
+bitmap_test/fast:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
+.PHONY : bitmap_test/fast
+
+# Convenience name for target.
 test/CMakeFiles/augmented_nn_test.dir/rule:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/augmented_nn_test.dir/rule
 .PHONY : test/CMakeFiles/augmented_nn_test.dir/rule
@@ -499,6 +514,33 @@ brain/testing_forecast_util.cpp.s:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/peloton-test-common.dir/build.make test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.s
 .PHONY : brain/testing_forecast_util.cpp.s
 
+common/bitmap_test.o: common/bitmap_test.cpp.o
+
+.PHONY : common/bitmap_test.o
+
+# target to build an object file
+common/bitmap_test.cpp.o:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/common/bitmap_test.cpp.o
+.PHONY : common/bitmap_test.cpp.o
+
+common/bitmap_test.i: common/bitmap_test.cpp.i
+
+.PHONY : common/bitmap_test.i
+
+# target to preprocess a source file
+common/bitmap_test.cpp.i:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/common/bitmap_test.cpp.i
+.PHONY : common/bitmap_test.cpp.i
+
+common/bitmap_test.s: common/bitmap_test.cpp.s
+
+.PHONY : common/bitmap_test.s
+
+# target to generate assembly for a file
+common/bitmap_test.cpp.s:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/common/bitmap_test.cpp.s
+.PHONY : common/bitmap_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -506,10 +548,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... peloton-test-common"
 	@echo "... tensorflow_util_test"
 	@echo "... check"
-	@echo "... test"
+	@echo "... bitmap_test"
 	@echo "... augmented_nn_test"
 	@echo "... query_clusterer_test"
 	@echo "... query_logger_test"
@@ -544,6 +587,9 @@ help:
 	@echo "... brain/testing_forecast_util.o"
 	@echo "... brain/testing_forecast_util.i"
 	@echo "... brain/testing_forecast_util.s"
+	@echo "... common/bitmap_test.o"
+	@echo "... common/bitmap_test.i"
+	@echo "... common/bitmap_test.s"
 .PHONY : help
 
 

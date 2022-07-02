@@ -80,7 +80,7 @@ void BaseTFModel::TFInit() {
 
 void BaseTFModel::GenerateModel(const std::string &args_str) {
   std::string cmd = "python3 \"" + pymodel_path_ + "\" " + args_str;
-  LOG_DEBUG("Executing command: %s", cmd.c_str());
+  // LOG_DEBUG("Executing command: %s", cmd.c_str());
   UNUSED_ATTRIBUTE bool succ = system(cmd.c_str());
   PELOTON_ASSERT(succ == 0);
   // PELOTON_ASSERT(FileUtil::Exists(graph_path_));

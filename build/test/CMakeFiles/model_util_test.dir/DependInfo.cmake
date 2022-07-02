@@ -17,7 +17,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "/opt/homebrew/include"
   "../src/include"
   "../test/include"
   "../third_party"

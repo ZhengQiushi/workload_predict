@@ -53,7 +53,7 @@ endfunction()
 function(peloton_pickup_peloton_sources root)
   # put all files in source groups (visible as subfolder in many IDEs)
   peloton_source_group("Include"        GLOB "${root}/src/include/*/*.h")
-  peloton_source_group("Include"        GLOB "${PROJECT_BINARY_DIR}/peloton_config.h*")
+  # peloton_source_group("Include"        GLOB "${PROJECT_BINARY_DIR}/peloton_config.h*")
   peloton_source_group("Source"         GLOB "${root}/src/*/*.cpp")
   peloton_source_group("Source\\Proto"  GLOB "${root}/src/proto/*.proto")
 
@@ -97,7 +97,7 @@ function(peloton_pickup_peloton_sources root)
   include_directories(SYSTEM "${date_hdrs}")
 
   # adding headers to make the visible in some IDEs (Qt, VS, Xcode)
-  list(APPEND srcs ${hdrs} ${PROJECT_BINARY_DIR}/peloton_config.h)
+  # list(APPEND srcs ${hdrs} ${PROJECT_BINARY_DIR}/peloton_config.h)
   list(APPEND test_srcs ${test_hdrs})
 
   # add proto to make them editable in IDEs too

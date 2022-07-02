@@ -103,6 +103,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/peloton-test-common.dir/DependInfo.cmake"
   "test/CMakeFiles/tensorflow_util_test.dir/DependInfo.cmake"
   "test/CMakeFiles/check.dir/DependInfo.cmake"
+  "test/CMakeFiles/bitmap_test.dir/DependInfo.cmake"
   "test/CMakeFiles/augmented_nn_test.dir/DependInfo.cmake"
   "test/CMakeFiles/query_clusterer_test.dir/DependInfo.cmake"
   "test/CMakeFiles/query_logger_test.dir/DependInfo.cmake"

@@ -54,7 +54,7 @@ bool ClusterCorrectness(std::set<brain::Cluster *> clusters,
 
 class QueryClustererTests : public PelotonTest {};
 
-TEST_F(QueryClustererTests, ClusterTest) {
+TEST(QueryClustererTests, ClusterTest) {
   int num_features = 5;
   double threshold = 0.7;
   brain::QueryClusterer query_clusterer(num_features, threshold);
@@ -71,8 +71,8 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   std::set<brain::Cluster *> clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 1);
-  EXPECT_TRUE(
-      ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1]}}));
+  EXPECT_EQ(
+      ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1]}}), true);
 
   for (uint i = 2; i < 4; i++) {
     query_clusterer.AddFeature(fingerprints[i], features[i]);
@@ -80,9 +80,9 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 3);
-  EXPECT_TRUE(ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1]},
+  EXPECT_EQ(ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1]},
                                             {fingerprints[2]},
-                                            {fingerprints[3]}}));
+                                            {fingerprints[3]}}), true);
 
   for (uint i = 4; i < 6; i++) {
     query_clusterer.AddFeature(fingerprints[i], features[i]);
@@ -90,10 +90,10 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 3);
-  EXPECT_TRUE(
+  EXPECT_EQ(
       ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1]},
                                     {fingerprints[2], fingerprints[4]},
-                                    {fingerprints[3], fingerprints[5]}}));
+                                    {fingerprints[3], fingerprints[5]}}), true);
 
   // Test whether existing templates are re-clustered properly
   features[3] = {100, 200, 0, 0, 0};
@@ -102,10 +102,10 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 3);
-  EXPECT_TRUE(ClusterCorrectness(
+  EXPECT_EQ(ClusterCorrectness(
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[3]},
                  {fingerprints[2], fingerprints[4]},
-                 {fingerprints[5]}}));
+                 {fingerprints[5]}}), true);
 
   // Multiple features are moved, but cluster centroids are not updated until
   // the round of UpdateExistingTemplates() is over
@@ -119,10 +119,10 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 3);
-  EXPECT_TRUE(ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1],
+  EXPECT_EQ(ClusterCorrectness(clusters, {{fingerprints[0], fingerprints[1],
                                              fingerprints[3], fingerprints[4]},
                                             {fingerprints[2]},
-                                            {fingerprints[5]}}));
+                                            {fingerprints[5]}}), true);
 
   // A new cluster gets added
   features[4] = {0, 10, 0, 10, 0};
@@ -131,11 +131,11 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 4);
-  EXPECT_TRUE(ClusterCorrectness(
+  EXPECT_EQ(ClusterCorrectness(
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[3]},
                  {fingerprints[2]},
                  {fingerprints[4]},
-                 {fingerprints[5]}}));
+                 {fingerprints[5]}}), true);
 
   // A cluster gets deleted
   features[2] = {0, 1, 0, 1, 0};
@@ -144,10 +144,10 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 3);
-  EXPECT_TRUE(ClusterCorrectness(
+  EXPECT_EQ(ClusterCorrectness(
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[3]},
                  {fingerprints[2], fingerprints[4]},
-                 {fingerprints[5]}}));
+                 {fingerprints[5]}}), true);
 
   // Test whether clusters are merged properly
   features[2] = {2, 6, 0, 4, 0};
@@ -160,17 +160,17 @@ TEST_F(QueryClustererTests, ClusterTest) {
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 2);
-  EXPECT_TRUE(ClusterCorrectness(
+  EXPECT_EQ(ClusterCorrectness(
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[3]},
-                 {fingerprints[2], fingerprints[4], fingerprints[5]}}));
+                 {fingerprints[2], fingerprints[4], fingerprints[5]}}), true);
 
   query_clusterer.MergeClusters();
 
   clusters = query_clusterer.GetClusters();
   EXPECT_EQ(clusters.size(), 1);
-  EXPECT_TRUE(ClusterCorrectness(
+  EXPECT_EQ(ClusterCorrectness(
       clusters, {{fingerprints[0], fingerprints[1], fingerprints[2],
-                  fingerprints[3], fingerprints[4], fingerprints[5]}}));
+                  fingerprints[3], fingerprints[4], fingerprints[5]}}), true);
 }
 
 int main(int argc, char **argv)

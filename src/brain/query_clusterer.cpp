@@ -11,7 +11,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "brain/query_clusterer.h"
-#include "common/logger.h"
+// #include "common/logger.h"
+#include "common/defs.h"
+#include <glog/logging.h>
 
 namespace peloton {
 namespace brain {
@@ -22,8 +24,20 @@ void QueryClusterer::UpdateFeatures() {
   // For new templates - insert into templates_ and
   // call UpdateTemplate(fingerprint, true)
 }
+Cluster* QueryClusterer::CreateNewCluster(const std::string &fingerprint, const vector<double> &feature) {
+  num_features_ = feature.size();
+  Cluster *cluster = nullptr;
+  cluster = new Cluster(num_features_);
+  cluster->AddTemplateAndUpdateCentroid(fingerprint, feature);
+  
+  // set index
+  int cluster_index = bitmap.next_unsetted_bit(0);
+  bitmap.set_bit(cluster_index);
+  cluster->SetIndex(cluster_index);
 
-void QueryClusterer::UpdateTemplate(std::string fingerprint, bool is_new) {
+  return cluster;
+}
+void QueryClusterer::UpdateTemplate(const std::string& fingerprint, bool is_new) {
   // Find the nearest cluster of the template's feature vector by querying the
   // KDTree of the centroids of the clusters. If the similarity of the feature
   // with the cluster is greater than the threshold, add it to the cluster.
@@ -36,11 +50,11 @@ void QueryClusterer::UpdateTemplate(std::string fingerprint, bool is_new) {
 
   if (cluster == nullptr) {
     // If the kd_tree_ is empty
-    cluster = new Cluster(num_features_);
-    cluster->AddTemplateAndUpdateCentroid(fingerprint, feature);
+    cluster = CreateNewCluster(fingerprint, feature);
     kd_tree_.Insert(cluster);
     clusters_.insert(cluster);
     template_cluster_[fingerprint] = cluster;
+    VLOG(DEBUG_V6) << "new cluster created for @" << fingerprint << " index = " << cluster->GetIndex();
     return;
   }
 
@@ -53,17 +67,24 @@ void QueryClusterer::UpdateTemplate(std::string fingerprint, bool is_new) {
       // updating an existing template, so need not update the centroid
       cluster->AddTemplate(fingerprint);
     }
+    VLOG(DEBUG_V6) << "cluster updated for @" << fingerprint << " index = " << cluster->GetIndex();
+
   } else {
     // create a new cluster as the nearest neighbor is not similar enough
-    cluster = new Cluster(num_features_);
-    cluster->AddTemplateAndUpdateCentroid(fingerprint, feature);
+    cluster = CreateNewCluster(fingerprint, feature);
     kd_tree_.Insert(cluster);
     clusters_.insert(cluster);
+    VLOG(DEBUG_V6) << "new cluster created for @" << fingerprint << " index = " << cluster->GetIndex();
   }
 
   template_cluster_[fingerprint] = cluster;
 }
 
+void QueryClusterer::DropCluster(Cluster *cluster){
+
+  bitmap.clear_bit(cluster->GetIndex());
+  delete cluster;
+}
 void QueryClusterer::UpdateExistingTemplates() {
   // for each template check the similarity with the cluster
   // if the similarity is less than the threshold, then remove it
@@ -74,6 +95,7 @@ void QueryClusterer::UpdateExistingTemplates() {
     auto *cluster = template_cluster_[fingerprint];
     auto similarity = cluster->CosineSimilarity(feature.second);
     if (similarity < threshold_) {
+      VLOG(DEBUG_V6) << "   delete template @" << fingerprint << " from cluster" << " index = " << cluster->GetIndex();
       cluster->RemoveTemplate(fingerprint);
       UpdateTemplate(fingerprint, false);
     }
@@ -91,7 +113,9 @@ void QueryClusterer::UpdateExistingTemplates() {
   // Delete the clusters that are empty
   for (auto cluster : to_delete) {
     clusters_.erase(cluster);
-    delete cluster;
+    
+    VLOG(DEBUG_V6) << "   delete empty cluster" << " index = " << cluster->GetIndex();
+    DropCluster(cluster);
   }
 
   // Rebuild the tree to account for the deleted clusters
@@ -111,6 +135,8 @@ void QueryClusterer::MergeClusters() {
       auto similarity = left->CosineSimilarity(r_centroid);
 
       if (similarity > threshold_) {
+        VLOG(DEBUG_V6) << "left cluster was merged" << " index = " << left->GetIndex() << " -> " << right->GetIndex();
+
         auto templates = left->GetTemplates();
         for (auto &fingerprint : templates) {
           right->AddTemplate(fingerprint);
@@ -126,7 +152,8 @@ void QueryClusterer::MergeClusters() {
   // Delete the clusters that are empty
   for (auto cluster : to_delete) {
     clusters_.erase(cluster);
-    delete cluster;
+    VLOG(DEBUG_V6) << "delete merged cluster" << " index = " << cluster->GetIndex();
+    DropCluster(cluster);
   }
 
   // Rebuild the KDTree to account for changed clusters
@@ -142,8 +169,8 @@ void QueryClusterer::UpdateCluster() {
   MergeClusters();
 }
 
-void QueryClusterer::AddFeature(std::string &fingerprint,
-                                std::vector<double> feature) {
+void QueryClusterer::AddFeature(const std::string &fingerprint,
+                                std::vector<double>& feature) {
   // Normalize and add a feature into the cluster.
   // This is currently used only for testing.
   double l2_norm = 0.0;
@@ -156,8 +183,11 @@ void QueryClusterer::AddFeature(std::string &fingerprint,
     // Update the cluster if it's a new template
     features_[fingerprint] = feature;
     UpdateTemplate(fingerprint, true);
+    // VLOG(DEBUG_V6) << "add new feature for @" << fingerprint;
+
   } else {
     features_[fingerprint] = feature;
+    // VLOG(DEBUG_V6) << "update feature for @" << fingerprint;
   }
 }
 

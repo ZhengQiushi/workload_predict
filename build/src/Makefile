@@ -610,6 +610,33 @@ brain/workload/workload_defaults.cpp.s:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.s
 .PHONY : brain/workload/workload_defaults.cpp.s
 
+common/bitmap.o: common/bitmap.cpp.o
+
+.PHONY : common/bitmap.o
+
+# target to build an object file
+common/bitmap.cpp.o:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/common/bitmap.cpp.o
+.PHONY : common/bitmap.cpp.o
+
+common/bitmap.i: common/bitmap.cpp.i
+
+.PHONY : common/bitmap.i
+
+# target to preprocess a source file
+common/bitmap.cpp.i:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/common/bitmap.cpp.i
+.PHONY : common/bitmap.cpp.i
+
+common/bitmap.s: common/bitmap.cpp.s
+
+.PHONY : common/bitmap.s
+
+# target to generate assembly for a file
+common/bitmap.cpp.s:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f src/CMakeFiles/peloton.dir/build.make src/CMakeFiles/peloton.dir/common/bitmap.cpp.s
+.PHONY : common/bitmap.cpp.s
+
 main/main.o: main/main.cpp.o
 
 .PHONY : main/main.o
@@ -702,6 +729,9 @@ help:
 	@echo "... brain/workload/workload_defaults.o"
 	@echo "... brain/workload/workload_defaults.i"
 	@echo "... brain/workload/workload_defaults.s"
+	@echo "... common/bitmap.o"
+	@echo "... common/bitmap.i"
+	@echo "... common/bitmap.s"
 	@echo "... main/main.o"
 	@echo "... main/main.i"
 	@echo "... main/main.s"

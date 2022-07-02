@@ -18,3 +18,5 @@ add_test(query_logger_test "/home/zqs/project/workload_predict/build/test/query_
 set_tests_properties(query_logger_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
 add_test(tensorflow_util_test "/home/zqs/project/workload_predict/build/test/tensorflow_util_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/tensorflow_util_test.xml")
 set_tests_properties(tensorflow_util_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
+add_test(bitmap_test "/home/zqs/project/workload_predict/build/test/bitmap_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/bitmap_test.xml")
+set_tests_properties(bitmap_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")

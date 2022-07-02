@@ -164,7 +164,7 @@ void TFSE_TYPE::PrintOperations() {
     graph_ops += TF_OperationName(oper);
     graph_ops += "\n";
   }
-  LOG_DEBUG("%s", graph_ops.c_str());
+  // LOG_DEBUG("%s", graph_ops.c_str());
 }
 
 TFSE_TEMPLATE_ARGUMENTS

@@ -60,15 +60,15 @@ include test/CMakeFiles/query_logger_test.dir/flags.make
 test/CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.o: test/CMakeFiles/query_logger_test.dir/flags.make
 test/CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.o: ../test/brain/query_logger_test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.o"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.o -c /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.o -c /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp
 
 test/CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.i"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp > CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.i
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp > CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.i
 
 test/CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.s"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp -o CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.s
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/query_logger_test.cpp -o CMakeFiles/query_logger_test.dir/brain/query_logger_test.cpp.s
 
 # Object files for target query_logger_test
 query_logger_test_OBJECTS = \
@@ -86,6 +86,7 @@ test/query_logger_test: /usr/local/boost/lib/libboost_filesystem.so
 test/query_logger_test: /usr/local/lib64/libgmock.a
 test/query_logger_test: /usr/local/lib64/libgtest.a
 test/query_logger_test: /usr/local/lib/libgflags.so.2.2.0
+test/query_logger_test: /usr/local/lib/libglog.a
 test/query_logger_test: /usr/local/lib/libtensorflow_cc.so
 test/query_logger_test: /usr/local/lib/libtensorflow_framework.so
 test/query_logger_test: /usr/local/lib/libevent.a

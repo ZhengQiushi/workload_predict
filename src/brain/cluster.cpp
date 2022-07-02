@@ -17,8 +17,8 @@
 namespace peloton {
 namespace brain {
 
-void Cluster::AddTemplateAndUpdateCentroid(std::string &fingerprint,
-                                           std::vector<double> &feature) {
+void Cluster::AddTemplateAndUpdateCentroid(const std::string &fingerprint,
+                                           const std::vector<double> &feature) {
   size_t num_templates = templates_.size();
   for (unsigned int i = 0u; i < feature.size(); i++) {
     centroid_[i] +=
@@ -31,7 +31,7 @@ void Cluster::AddTemplate(const std::string &fingerprint) {
   templates_.insert(fingerprint);
 }
 
-void Cluster::RemoveTemplate(std::string &fingerprint) {
+void Cluster::RemoveTemplate(const std::string &fingerprint) {
   templates_.erase(fingerprint);
 }
 
@@ -56,14 +56,14 @@ void Cluster::UpdateCentroid(
 
 double Cluster::CosineSimilarity(std::vector<double> &feature) {
   double dot = 0.0, denom_a = 0.0, denom_b = 0.0;
-  double epsilon = 1e-5;
+  // double epsilon = 1e-5;
   for (unsigned int i = 0u; i < feature.size(); i++) {
     dot += centroid_[i] * feature[i];
     denom_a += centroid_[i] * centroid_[i];
     denom_b += feature[i] * feature[i];
   }
 
-  if (denom_a < epsilon || denom_b < epsilon) return 0.0;
+  // if (denom_a < epsilon || denom_b < epsilon) return 0.0;
 
   return dot / (sqrt(denom_a) * sqrt(denom_b));
 }

@@ -28,14 +28,16 @@ namespace brain {
 
 class Cluster {
  public:
-  Cluster(int num_features) : centroid_(num_features, 0.0) {}
+  Cluster(int num_features) : centroid_(num_features, 0.0) {
+    index_ = -1;
+  }
 
   /**
    * @brief Add the fingerprint to the set of templates of the cluster
    * and update the centroid of the cluster
    */
-  void AddTemplateAndUpdateCentroid(std::string &fingerprint,
-                                    std::vector<double> &feature);
+  void AddTemplateAndUpdateCentroid(const std::string &fingerprint,
+                                    const std::vector<double> &feature);
 
   /**
    * @brief Add the fingerprint to the set of templates without updating the
@@ -47,7 +49,7 @@ class Cluster {
    * @brief Remove the fingerprint from the set of templates without updating
    * the centroid
    */
-  void RemoveTemplate(std::string &fingerprint);
+  void RemoveTemplate(const std::string &fingerprint);
 
   /**
    * @brief Update the centroid of the cluster

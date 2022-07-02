@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "bench_tpcc",//编译的项目名，build
+            "type": "shell",
+            "command": "cd /home/zqs/project/workload_predict/build && make -j10",//编译命令
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            
+ 
+        }
+    ]
+}

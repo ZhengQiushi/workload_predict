@@ -60,15 +60,15 @@ include test/CMakeFiles/augmented_nn_test.dir/flags.make
 test/CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.o: test/CMakeFiles/augmented_nn_test.dir/flags.make
 test/CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.o: ../test/brain/augmented_nn_test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zqs/project/workload_predict/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.o"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.o -c /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.o -c /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp
 
 test/CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.i"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp > CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.i
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp > CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.i
 
 test/CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.s"
-	cd /home/zqs/project/workload_predict/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp -o CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.s
+	cd /home/zqs/project/workload_predict/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zqs/project/workload_predict/test/brain/augmented_nn_test.cpp -o CMakeFiles/augmented_nn_test.dir/brain/augmented_nn_test.cpp.s
 
 # Object files for target augmented_nn_test
 augmented_nn_test_OBJECTS = \
@@ -86,6 +86,7 @@ test/augmented_nn_test: /usr/local/boost/lib/libboost_filesystem.so
 test/augmented_nn_test: /usr/local/lib64/libgmock.a
 test/augmented_nn_test: /usr/local/lib64/libgtest.a
 test/augmented_nn_test: /usr/local/lib/libgflags.so.2.2.0
+test/augmented_nn_test: /usr/local/lib/libglog.a
 test/augmented_nn_test: /usr/local/lib/libtensorflow_cc.so
 test/augmented_nn_test: /usr/local/lib/libtensorflow_framework.so
 test/augmented_nn_test: /usr/local/lib/libevent.a

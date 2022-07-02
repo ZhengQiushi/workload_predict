@@ -1,16 +1,11 @@
 cmake_minimum_required(VERSION 2.8.7)
-if(POLICY CMP0046)
-  cmake_policy(SET CMP0046 NEW)
-endif()
-if(POLICY CMP0054)
-  cmake_policy(SET CMP0054 NEW)
-endif()
+
 
 # ---[ Peloton project
 project(Peloton CXX C)
 
-include_directories(/opt/homebrew/include) # 添加头文件搜索路径
-link_directories(/opt/homebrew/lib) # 添加库文件搜索路径
+# include_directories(/opt/homebrew/include) # 添加头文件搜索路径
+# link_directories(/opt/homebrew/lib) # 添加库文件搜索路径
 
 # ---[ CTest
 include(CTest)
@@ -26,7 +21,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # ---[ Using cmake scripts and modules
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
+# list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
 include(cmake/Utils.cmake)
 include(cmake/Targets.cmake)
@@ -38,16 +33,11 @@ include(cmake/Dependencies.cmake)
 include(CheckCXXCompilerFlag)
 check_cxx_compiler_flag("-std=c++11" COMPILER_SUPPORTS_CXX11)
 
-if(COMPILER_SUPPORTS_CXX11)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
-endif()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC -Wall -O0 -g -ggdb3")
 
-# Create a new pre-processor macro __PELOTONFILE__ that has a truncated
-# path to reduce the size of the debug log messages.
-# Source: http://stackoverflow.com/a/16658858
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__PELOTONFILE__='\"$(subst ${CMAKE_SOURCE_DIR}/,,$(abspath $<))\"'")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 # ---[ Includes
 set(Peloton_SRC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src/include)

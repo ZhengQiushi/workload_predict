@@ -16,6 +16,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/peloton.dir/brain/workload/linear_model.cpp.o"
   "CMakeFiles/peloton.dir/brain/workload/lstm.cpp.o"
   "CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o"
+  "CMakeFiles/peloton.dir/common/bitmap.cpp.o"
   "CMakeFiles/peloton.dir/main/main.cpp.o"
   "../lib/libpeloton.pdb"
   "../lib/libpeloton.so.0.0.5"

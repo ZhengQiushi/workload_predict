@@ -551,6 +551,19 @@ check/fast:
 .PHONY : check/fast
 
 #=============================================================================
+# Target rules for targets named bitmap_test
+
+# Build rule for target.
+bitmap_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bitmap_test
+.PHONY : bitmap_test
+
+# fast build rule for target.
+bitmap_test/fast:
+	$(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
+.PHONY : bitmap_test/fast
+
+#=============================================================================
 # Target rules for targets named augmented_nn_test
 
 # Build rule for target.
@@ -670,6 +683,7 @@ help:
 	@echo "... peloton-test-common"
 	@echo "... tensorflow_util_test"
 	@echo "... check"
+	@echo "... bitmap_test"
 	@echo "... augmented_nn_test"
 	@echo "... query_clusterer_test"
 	@echo "... query_logger_test"

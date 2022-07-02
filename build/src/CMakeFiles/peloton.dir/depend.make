@@ -10,14 +10,33 @@ src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../src/include/brain/cluster.h
 src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../src/include/brain/kd_tree.h
 src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../src/include/common/logger.h
 src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../src/include/common/macros.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../third_party/annoy/annoylib.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../third_party/annoy/kissrandom.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../third_party/annoy/mman.h
 src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: ../src/brain/kd_tree.cpp
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/gflags/gflags.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/gflags/gflags_declare.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/gflags/gflags_gflags.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/glog/log_severity.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/glog/logging.h
+src/CMakeFiles/peloton.dir/brain/kd_tree.cpp.o: /usr/local/include/glog/vlog_is_on.h
 
 src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/brain/cluster.h
 src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/brain/kd_tree.h
 src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/brain/query_clusterer.h
-src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/common/logger.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/common/bitmap.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/common/defs.h
 src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/include/common/macros.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../third_party/annoy/annoylib.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../third_party/annoy/kissrandom.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../third_party/annoy/mman.h
 src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: ../src/brain/query_clusterer.cpp
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/gflags/gflags.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/gflags/gflags_declare.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/gflags/gflags_gflags.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/glog/log_severity.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/glog/logging.h
+src/CMakeFiles/peloton.dir/brain/query_clusterer.cpp.o: /usr/local/include/glog/vlog_is_on.h
 
 src/CMakeFiles/peloton.dir/brain/selectivity/augmented_nn.cpp.o: ../src/include/brain/selectivity/augmented_nn.h
 src/CMakeFiles/peloton.dir/brain/selectivity/augmented_nn.cpp.o: ../src/include/brain/util/eigen_util.h
@@ -463,5 +482,23 @@ src/CMakeFiles/peloton.dir/brain/workload/lstm.cpp.o: /usr/local/include/tensorf
 src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o: ../src/include/brain/workload/workload_defaults.h
 src/CMakeFiles/peloton.dir/brain/workload/workload_defaults.cpp.o: ../src/brain/workload/workload_defaults.cpp
 
+src/CMakeFiles/peloton.dir/common/bitmap.cpp.o: ../src/include/common/bitmap.h
+src/CMakeFiles/peloton.dir/common/bitmap.cpp.o: ../src/common/bitmap.cpp
+
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/brain/cluster.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/brain/kd_tree.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/brain/query_clusterer.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/common/bitmap.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/common/defs.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/include/common/macros.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../third_party/annoy/annoylib.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../third_party/annoy/kissrandom.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: ../third_party/annoy/mman.h
 src/CMakeFiles/peloton.dir/main/main.cpp.o: ../src/main/main.cpp
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/gflags/gflags.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/gflags/gflags_declare.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/gflags/gflags_gflags.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/glog/log_severity.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/glog/logging.h
+src/CMakeFiles/peloton.dir/main/main.cpp.o: /usr/local/include/glog/vlog_is_on.h
 

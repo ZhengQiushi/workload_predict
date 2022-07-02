@@ -15,7 +15,7 @@ void TestingForecastUtil::WorkloadTest(
     brain::BaseForecastModel &model, WorkloadType w, size_t val_interval,
     size_t num_samples, size_t num_feats, float val_split, bool normalize,
     float val_loss_thresh, size_t early_stop_patience, float early_stop_delta) {
-  LOG_INFO("Using Model: %s", model.ToString().c_str());
+  // // LOG_INFO("Using Model: %s", model.ToString().c_str());
 
   matrix_eig data = GetWorkload(w, num_samples, num_feats);
   brain::Normalizer n(normalize);
@@ -51,7 +51,7 @@ void TestingForecastUtil::WorkloadTest(
       // EXPECT_LE(val_loss, prev_valid_loss);
       // An average on the other hand should surely pass
       EXPECT_LE(train_loss, prev_train_loss);
-      LOG_DEBUG("Train Loss: %.10f, Valid Loss: %.10f", train_loss, val_loss);
+      // LOG_DEBUG("Train Loss: %.10f, Valid Loss: %.10f", train_loss, val_loss);
       prev_train_loss = train_loss;
     }
   }
@@ -69,7 +69,7 @@ void TestingForecastUtil::WorkloadTest(
   }
   matrix_eig valid_data = GetWorkload(w, num_samples, num_feats);
   float ensemble_loss = model.Validate(valid_data);
-  LOG_DEBUG("Ensemble Loss: %.10f", ensemble_loss);
+  // LOG_DEBUG("Ensemble Loss: %.10f", ensemble_loss);
   EXPECT_LE(ensemble_loss, val_loss_thresh);
 }
 
@@ -89,14 +89,14 @@ matrix_eig TestingForecastUtil::GetWorkload(WorkloadType w, size_t num_samples,
           data.col(i) = data.col(i).array().cos();
         }
       }
-      LOG_INFO("Generating a Sinusoidal workload of dims: %ld x %ld",
-               num_samples, num_feats);
+      // LOG_INFO("Generating a Sinusoidal workload of dims: %ld x %ld",
+      //          num_samples, num_feats);
       break;
     case WorkloadType::NoisySinusoidal:
       data =
           GetWorkload(WorkloadType::SimpleSinusoidal, num_samples, num_feats) +
           brain::EigenUtil::GaussianNoise(num_samples, num_feats, 0.5, 1);
-      LOG_INFO("Adding Gaussian Noise(Mean=0.5, Std = 1.0)");
+      // LOG_INFO("Adding Gaussian Noise(Mean=0.5, Std = 1.0)");
       break;
     case WorkloadType::SimpleLinear:
       // y=m*x
@@ -105,13 +105,13 @@ matrix_eig TestingForecastUtil::GetWorkload(WorkloadType w, size_t num_samples,
       for (size_t i = 0; i < num_feats; i++) {
         data.col(i) *= (3 * i);
       }
-      LOG_INFO("Generating a Linear workload of dims: %ld x %ld", num_samples,
-               num_feats);
+      // LOG_INFO("Generating a Linear workload of dims: %ld x %ld", num_samples,
+      //          num_feats);
       break;
     case WorkloadType::NoisyLinear:
       data = GetWorkload(WorkloadType::SimpleLinear, num_samples, num_feats) +
              brain::EigenUtil::GaussianNoise(num_samples, num_feats, 0.5, 1);
-      LOG_INFO("Adding Gaussian Noise(Mean=0.5, Std = 1.0)");
+      // LOG_INFO("Adding Gaussian Noise(Mean=0.5, Std = 1.0)");
       break;
   }
   return data;
