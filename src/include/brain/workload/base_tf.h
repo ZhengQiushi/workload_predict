@@ -25,10 +25,28 @@ namespace brain {
 class Normalizer {
  public:
   Normalizer(bool do_normalize = true) : do_normalize_(do_normalize){};
+  /**
+   * @brief calculate `min`, `std` for normalization
+   * 
+   * @param X 
+   */
   void Fit(const matrix_eig &X);
+  /**
+   * @brief do normalization
+   * 
+   * @param X 
+   * @return matrix_eig 
+   */
   matrix_eig Transform(const matrix_eig &X) const;
+  /**
+   * @brief recover from normalized data
+   * 
+   * @param X 
+   * @return matrix_eig 
+   */
   matrix_eig ReverseTransform(const matrix_eig &X) const;
 
+  void GetParameters(float& mean_, float& std_, float& min_) const;
  private:
   float mean_;
   float std_;
@@ -63,6 +81,8 @@ class BaseForecastModel : public virtual BaseModel {
         epochs_(epochs){};
   virtual float TrainEpoch(const matrix_eig &data) = 0;
   virtual float ValidateEpoch(const matrix_eig &data) = 0;
+  virtual float ValidateEpoch(const matrix_eig &data, matrix_eig &y, matrix_eig &y_hat) = 0;
+
   int GetHorizon() const { return horizon_; }
   int GetBPTT() const { return bptt_; }
   int GetInterval() const { return interval_; }

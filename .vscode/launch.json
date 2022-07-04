@@ -12,7 +12,7 @@
             "type": "cppdbg",
             "request": "launch",
             // "program": "${fileDirname}/${fileBasenameNoExtension}", bench_ycsb
-            "program": "/home/zqs/project/workload_predict/build/bin/peloton", // 需要执行的文件位置 ycsb"
+            "program": "/home/zqs/project/workload_predict/build/test/forcast_workload_test", // 需要执行的文件位置 ycsb" // bin/peloton
             "args": [
                 "--logtostderr=1",
                 "--v=10"

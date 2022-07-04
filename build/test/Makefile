@@ -122,6 +122,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/bitmap_test.dir/rule:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/bitmap_test.dir/rule
+.PHONY : test/CMakeFiles/bitmap_test.dir/rule
+
+# Convenience name for target.
+bitmap_test: test/CMakeFiles/bitmap_test.dir/rule
+
+.PHONY : bitmap_test
+
+# fast build rule for target.
+bitmap_test/fast:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
+.PHONY : bitmap_test/fast
+
+# Convenience name for target.
 test/CMakeFiles/peloton-test-common.dir/rule:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/peloton-test-common.dir/rule
 .PHONY : test/CMakeFiles/peloton-test-common.dir/rule
@@ -167,21 +182,6 @@ check/fast:
 .PHONY : check/fast
 
 # Convenience name for target.
-test/CMakeFiles/bitmap_test.dir/rule:
-	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/bitmap_test.dir/rule
-.PHONY : test/CMakeFiles/bitmap_test.dir/rule
-
-# Convenience name for target.
-bitmap_test: test/CMakeFiles/bitmap_test.dir/rule
-
-.PHONY : bitmap_test
-
-# fast build rule for target.
-bitmap_test/fast:
-	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
-.PHONY : bitmap_test/fast
-
-# Convenience name for target.
 test/CMakeFiles/augmented_nn_test.dir/rule:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/augmented_nn_test.dir/rule
 .PHONY : test/CMakeFiles/augmented_nn_test.dir/rule
@@ -195,6 +195,21 @@ augmented_nn_test: test/CMakeFiles/augmented_nn_test.dir/rule
 augmented_nn_test/fast:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/augmented_nn_test.dir/build.make test/CMakeFiles/augmented_nn_test.dir/build
 .PHONY : augmented_nn_test/fast
+
+# Convenience name for target.
+test/CMakeFiles/forcast_workload_test.dir/rule:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/forcast_workload_test.dir/rule
+.PHONY : test/CMakeFiles/forcast_workload_test.dir/rule
+
+# Convenience name for target.
+forcast_workload_test: test/CMakeFiles/forcast_workload_test.dir/rule
+
+.PHONY : forcast_workload_test
+
+# fast build rule for target.
+forcast_workload_test/fast:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/forcast_workload_test.dir/build.make test/CMakeFiles/forcast_workload_test.dir/build
+.PHONY : forcast_workload_test/fast
 
 # Convenience name for target.
 test/CMakeFiles/query_clusterer_test.dir/rule:
@@ -324,6 +339,33 @@ brain/eigen_util_test.s: brain/eigen_util_test.cpp.s
 brain/eigen_util_test.cpp.s:
 	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/eigen_util_test.dir/build.make test/CMakeFiles/eigen_util_test.dir/brain/eigen_util_test.cpp.s
 .PHONY : brain/eigen_util_test.cpp.s
+
+brain/forcast_workload_test.o: brain/forcast_workload_test.cpp.o
+
+.PHONY : brain/forcast_workload_test.o
+
+# target to build an object file
+brain/forcast_workload_test.cpp.o:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/forcast_workload_test.dir/build.make test/CMakeFiles/forcast_workload_test.dir/brain/forcast_workload_test.cpp.o
+.PHONY : brain/forcast_workload_test.cpp.o
+
+brain/forcast_workload_test.i: brain/forcast_workload_test.cpp.i
+
+.PHONY : brain/forcast_workload_test.i
+
+# target to preprocess a source file
+brain/forcast_workload_test.cpp.i:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/forcast_workload_test.dir/build.make test/CMakeFiles/forcast_workload_test.dir/brain/forcast_workload_test.cpp.i
+.PHONY : brain/forcast_workload_test.cpp.i
+
+brain/forcast_workload_test.s: brain/forcast_workload_test.cpp.s
+
+.PHONY : brain/forcast_workload_test.s
+
+# target to generate assembly for a file
+brain/forcast_workload_test.cpp.s:
+	cd /home/zqs/project/workload_predict/build && $(MAKE) -f test/CMakeFiles/forcast_workload_test.dir/build.make test/CMakeFiles/forcast_workload_test.dir/brain/forcast_workload_test.cpp.s
+.PHONY : brain/forcast_workload_test.cpp.s
 
 brain/model_test.o: brain/model_test.cpp.o
 
@@ -549,11 +591,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... bitmap_test"
 	@echo "... peloton-test-common"
 	@echo "... tensorflow_util_test"
 	@echo "... check"
-	@echo "... bitmap_test"
 	@echo "... augmented_nn_test"
+	@echo "... forcast_workload_test"
 	@echo "... query_clusterer_test"
 	@echo "... query_logger_test"
 	@echo "... edit_cache"
@@ -566,6 +609,9 @@ help:
 	@echo "... brain/eigen_util_test.o"
 	@echo "... brain/eigen_util_test.i"
 	@echo "... brain/eigen_util_test.s"
+	@echo "... brain/forcast_workload_test.o"
+	@echo "... brain/forcast_workload_test.i"
+	@echo "... brain/forcast_workload_test.s"
 	@echo "... brain/model_test.o"
 	@echo "... brain/model_test.i"
 	@echo "... brain/model_test.s"

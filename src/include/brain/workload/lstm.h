@@ -57,6 +57,7 @@ class TimeSeriesLSTM : public BaseTFModel, public BaseForecastModel {
    * - this is a function of segment and horizon.
    */
   float ValidateEpoch(const matrix_eig &data) override;
+  float ValidateEpoch(const matrix_eig &data, matrix_eig &y, matrix_eig &y_hat) override;
 
   void Fit(const matrix_eig &X, const matrix_eig &y, int bsz) override;
   matrix_eig Predict(const matrix_eig &X, int bsz) const override;

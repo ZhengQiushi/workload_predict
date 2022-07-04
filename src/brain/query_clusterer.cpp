@@ -14,6 +14,7 @@
 // #include "common/logger.h"
 #include "common/defs.h"
 #include <glog/logging.h>
+#include <numeric>
 
 namespace peloton {
 namespace brain {
@@ -34,6 +35,9 @@ Cluster* QueryClusterer::CreateNewCluster(const std::string &fingerprint, const 
   int cluster_index = bitmap.next_unsetted_bit(0);
   bitmap.set_bit(cluster_index);
   cluster->SetIndex(cluster_index);
+
+  // set freqency
+  cluster->SetFrequency(frequency_[fingerprint]);
 
   return cluster;
 }
@@ -67,6 +71,9 @@ void QueryClusterer::UpdateTemplate(const std::string& fingerprint, bool is_new)
       // updating an existing template, so need not update the centroid
       cluster->AddTemplate(fingerprint);
     }
+    // update frequency
+    cluster->SetFrequency(cluster->GetFrequency() + frequency_[fingerprint]);
+
     VLOG(DEBUG_V6) << "cluster updated for @" << fingerprint << " index = " << cluster->GetIndex();
 
   } else {
@@ -96,6 +103,7 @@ void QueryClusterer::UpdateExistingTemplates() {
     auto similarity = cluster->CosineSimilarity(feature.second);
     if (similarity < threshold_) {
       VLOG(DEBUG_V6) << "   delete template @" << fingerprint << " from cluster" << " index = " << cluster->GetIndex();
+      cluster->SetFrequency(cluster->GetFrequency() - frequency_[fingerprint]);
       cluster->RemoveTemplate(fingerprint);
       UpdateTemplate(fingerprint, false);
     }
@@ -141,6 +149,8 @@ void QueryClusterer::MergeClusters() {
         for (auto &fingerprint : templates) {
           right->AddTemplate(fingerprint);
           template_cluster_[fingerprint] = right;
+          // update frequency
+          right->SetFrequency(right->GetFrequency() + frequency_[fingerprint]);
         }
         right->UpdateCentroid(features_);
         to_delete.push_back(left);
@@ -173,6 +183,8 @@ void QueryClusterer::AddFeature(const std::string &fingerprint,
                                 std::vector<double>& feature) {
   // Normalize and add a feature into the cluster.
   // This is currently used only for testing.
+  long long frequency = std::accumulate(feature.begin(), feature.end(),0);
+
   double l2_norm = 0.0;
   for (uint i = 0; i < feature.size(); i++) l2_norm += feature[i] * feature[i];
 
@@ -189,6 +201,8 @@ void QueryClusterer::AddFeature(const std::string &fingerprint,
     features_[fingerprint] = feature;
     // VLOG(DEBUG_V6) << "update feature for @" << fingerprint;
   }
+  frequency_[fingerprint] = frequency;
+
 }
 
 QueryClusterer::~QueryClusterer() {

@@ -98,16 +98,18 @@ class QueryClusterer {
   /**
    * @brief Return the all the clusters
    */
-  const std::set<Cluster *> &GetClusters() { return clusters_; }
+  const std::set<Cluster *> &GetClusters() const { return clusters_; }
 
   /**
    * @brief Destroyer
    */
   ~QueryClusterer();
-
+  
  private:
   // Map from the fingerprint of the template query to its feature vector
   std::map<std::string, std::vector<double>> features_;
+  // Map from the fingerprint of the template query to its frequency
+  std::map<std::string, long long> frequency_;
   // Map from the fingerprint of the template query to its cluster
   std::map<std::string, Cluster *> template_cluster_;
   // Set of all clusters

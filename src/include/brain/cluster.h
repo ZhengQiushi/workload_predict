@@ -30,6 +30,7 @@ class Cluster {
  public:
   Cluster(int num_features) : centroid_(num_features, 0.0) {
     index_ = -1;
+    frequency_ = 0;
   }
 
   /**
@@ -75,6 +76,16 @@ class Cluster {
   void SetIndex(int index) { index_ = index; }
 
   /**
+   * @brief Return the index of the cluster in the KDTree
+   */
+  long long GetFrequency() const { return frequency_; }
+
+  /**
+   * @brief Set the index of the cluster, set by the KDTree
+   */
+  void SetFrequency(long long frequecny) { frequency_ = frequecny; }
+
+  /**
    * @brief Return the number of fingerprints in the cluster
    */
   int GetSize() { return templates_.size(); }
@@ -87,7 +98,7 @@ class Cluster {
   /**
    * @brief Return the fingerprints in the cluster
    */
-  const std::set<std::string> &GetTemplates() { return templates_; }
+  const std::set<std::string> &GetTemplates() const { return templates_; }
 
  private:
   // index of the cluster in the KDTree
@@ -96,6 +107,8 @@ class Cluster {
   std::vector<double> centroid_;
   // fingerprints in the cluster
   std::set<std::string> templates_;
+  // frequency 
+  long long frequency_;
 };
 
 }  // namespace brain

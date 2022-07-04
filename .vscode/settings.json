@@ -74,6 +74,7 @@
         "iomanip": "cpp",
         "scoped_allocator": "cpp",
         "regex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "alignedvector3": "cpp"
     }
 }

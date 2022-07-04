@@ -512,6 +512,19 @@ peloton/fast:
 .PHONY : peloton/fast
 
 #=============================================================================
+# Target rules for targets named bitmap_test
+
+# Build rule for target.
+bitmap_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bitmap_test
+.PHONY : bitmap_test
+
+# fast build rule for target.
+bitmap_test/fast:
+	$(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
+.PHONY : bitmap_test/fast
+
+#=============================================================================
 # Target rules for targets named peloton-test-common
 
 # Build rule for target.
@@ -551,19 +564,6 @@ check/fast:
 .PHONY : check/fast
 
 #=============================================================================
-# Target rules for targets named bitmap_test
-
-# Build rule for target.
-bitmap_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bitmap_test
-.PHONY : bitmap_test
-
-# fast build rule for target.
-bitmap_test/fast:
-	$(MAKE) -f test/CMakeFiles/bitmap_test.dir/build.make test/CMakeFiles/bitmap_test.dir/build
-.PHONY : bitmap_test/fast
-
-#=============================================================================
 # Target rules for targets named augmented_nn_test
 
 # Build rule for target.
@@ -575,6 +575,19 @@ augmented_nn_test: cmake_check_build_system
 augmented_nn_test/fast:
 	$(MAKE) -f test/CMakeFiles/augmented_nn_test.dir/build.make test/CMakeFiles/augmented_nn_test.dir/build
 .PHONY : augmented_nn_test/fast
+
+#=============================================================================
+# Target rules for targets named forcast_workload_test
+
+# Build rule for target.
+forcast_workload_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 forcast_workload_test
+.PHONY : forcast_workload_test
+
+# fast build rule for target.
+forcast_workload_test/fast:
+	$(MAKE) -f test/CMakeFiles/forcast_workload_test.dir/build.make test/CMakeFiles/forcast_workload_test.dir/build
+.PHONY : forcast_workload_test/fast
 
 #=============================================================================
 # Target rules for targets named query_clusterer_test
@@ -680,11 +693,12 @@ help:
 	@echo "... ContinuousUpdate"
 	@echo "... peloton-bin"
 	@echo "... peloton"
+	@echo "... bitmap_test"
 	@echo "... peloton-test-common"
 	@echo "... tensorflow_util_test"
 	@echo "... check"
-	@echo "... bitmap_test"
 	@echo "... augmented_nn_test"
+	@echo "... forcast_workload_test"
 	@echo "... query_clusterer_test"
 	@echo "... query_logger_test"
 	@echo "... model_test"

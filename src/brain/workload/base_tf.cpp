@@ -56,6 +56,12 @@ matrix_eig Normalizer::ReverseTransform(const matrix_eig &X) const {
   }
 }
 
+void Normalizer::GetParameters(float& m_, float& s_, float& mi_) const{
+  m_ = mean_;
+  s_ = std_;
+  mi_ = min_;
+}
+
 /**
  * BaseTFModel methods
  */

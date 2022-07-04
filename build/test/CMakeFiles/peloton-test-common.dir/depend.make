@@ -88,6 +88,9 @@ test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: ../te
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gflags/gflags.h
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gflags/gflags_declare.h
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gflags/gflags_gflags.h
+test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/glog/log_severity.h
+test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/glog/logging.h
+test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/glog/vlog_is_on.h
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gmock/gmock-actions.h
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gmock/gmock-cardinalities.h
 test/CMakeFiles/peloton-test-common.dir/brain/testing_forecast_util.cpp.o: /usr/local/include/gmock/gmock-generated-actions.h

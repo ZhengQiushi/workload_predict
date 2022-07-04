@@ -8,6 +8,8 @@ add_test(augmented_nn_test "/home/zqs/project/workload_predict/build/test/augmen
 set_tests_properties(augmented_nn_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
 add_test(eigen_util_test "/home/zqs/project/workload_predict/build/test/eigen_util_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/eigen_util_test.xml")
 set_tests_properties(eigen_util_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
+add_test(forcast_workload_test "/home/zqs/project/workload_predict/build/test/forcast_workload_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/forcast_workload_test.xml")
+set_tests_properties(forcast_workload_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
 add_test(model_test "/home/zqs/project/workload_predict/build/test/model_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/model_test.xml")
 set_tests_properties(model_test PROPERTIES  ENVIRONMENT "LSAN_OPTIONS=suppressions=/home/zqs/project/workload_predict/test/leak_suppr.txt")
 add_test(model_util_test "/home/zqs/project/workload_predict/build/test/model_util_test" "--gtest_color=yes" "--gtest_output=xml:/home/zqs/project/workload_predict/build/test/model_util_test.xml")

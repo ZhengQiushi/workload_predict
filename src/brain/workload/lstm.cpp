@@ -164,5 +164,28 @@ float TimeSeriesLSTM::ValidateEpoch(const matrix_eig &data) {
   matrix_eig y_hat = EigenUtil::VStack(y_hat_batch);
   return ModelUtil::MeanSqError(y, y_hat);
 }
+
+float TimeSeriesLSTM::ValidateEpoch(const matrix_eig &data, matrix_eig &y, matrix_eig &y_hat){
+  std::vector<float> losses;
+  std::vector<std::vector<matrix_eig>> data_batches, target_batches;
+  ModelUtil::GetBatches(*this, data, batch_size_, data_batches, target_batches);
+
+  PELOTON_ASSERT(data_batches.size() == target_batches.size());
+
+  // Run through each batch and compute loss/apply backprop
+  std::vector<matrix_eig> y_hat_batch, y_batch;
+  for (size_t i = 0; i < data_batches.size(); i++) {
+    std::vector<matrix_eig> &data_batch_eig = data_batches[i];
+    std::vector<matrix_eig> &target_batch_eig = target_batches[i];
+    matrix_eig y_hat_i = Predict(EigenUtil::VStack(data_batch_eig),
+                                 static_cast<int>(data_batch_eig.size()));
+    y_hat_batch.push_back(y_hat_i);
+    y_batch.push_back(EigenUtil::VStack(target_batch_eig));
+  }
+  y = EigenUtil::VStack(y_batch);
+  y_hat = EigenUtil::VStack(y_hat_batch);
+  return ModelUtil::MeanSqError(y, y_hat);
+}
+
 }  // namespace brain
 }  // namespace peloton
